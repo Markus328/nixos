@@ -76,6 +76,4 @@
       };
     };
   ##
-
-  ##IMPURITIES: boot - efi only grub
 }
