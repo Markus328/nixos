@@ -39,7 +39,7 @@
       path = with pkgs;[ bashInteractive btrfs-progs gawk gnused ];
       description = "Do a root and home snapshot";
       serviceConfig = {
-        ExecStart = "/special/scripts/snapshots.sh -r"; ## set the correct path of the script
+        ExecStart = "/userdata/@dotfiles/scripts/snapshots.sh -r"; ## set the correct path of the script
       };
     };
     timers.snapshots = {
