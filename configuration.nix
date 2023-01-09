@@ -117,7 +117,6 @@
     microcodeIntel
     python38
     firefox
-    grapejuice
   ];
 
 
