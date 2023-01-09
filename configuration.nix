@@ -39,7 +39,7 @@
       path = with pkgs;[ bashInteractive btrfs-progs gawk gnused ];
       description = "Do a root and home snapshot";
       serviceConfig = {
-        ExecStart = "/special/scripts/snapshots.sh -r"; ## set the correct path of the script
+        ExecStart = "/userdata/@dotfiles/scripts/snapshots.sh -r"; ## set the correct path of the script
       };
     };
     timers.snapshots = {
@@ -60,20 +60,6 @@
   #DESKTOP
   services.xserver = {
     enable = true;
-    desktopManager.plasma5 = {
-      enable = true;
-      mobile.installRecommendedSoftware = false;
-      excludePackages = with pkgs.plasma5Packages; [
-        plasma-browser-integration
-        konsole
-        okular
-        powerdevil
-        bluedevil
-        bluez-qt
-        breeze-plymouth
-        breeze-grub
-      ];
-    };
 
     displayManager.lightdm.enable = false;
 
@@ -92,6 +78,7 @@
   };
 
   programs.zsh.enable = true;
+  programs.hyprland.enable = true;
 
   #USERS
   users.users = {
@@ -117,7 +104,6 @@
     microcodeIntel
     python38
     firefox
-    grapejuice
   ];
 
 
