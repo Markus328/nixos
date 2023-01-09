@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  t64gram = (import "/userdata/@workspace/clone/64gram/nix-build/default.nix");
-in
+{ pkgs, t64gram, ... }:
 {
 
   home.username = "markus";
@@ -11,10 +8,8 @@ in
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
     pavucontrol
-    tdesktop
     nixos-option
     bottles
-    imv
     grapejuice
     wl-clipboard
     foot
@@ -22,6 +17,7 @@ in
     nextcloud-client
     tmux
     wineWowPackages.unstableFull
+    t64gram
 
     #programming
     clang
@@ -29,7 +25,7 @@ in
     cargo
     rnix-lsp
     nodejs
-
+    
   ];
 
 }
