@@ -87,7 +87,8 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+      font-awesome
+      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monofur" ]; })
     ];
     fontDir.enable = true;
   };
