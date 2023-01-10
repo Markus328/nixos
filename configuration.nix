@@ -18,10 +18,11 @@
 
   ##IMPURITIES: boot - efi only grub
   boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelParams = [ "mitigations=off" ];
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
+      efiSysMountPoint = "/boot/efi"; ## Set yourself
     };
     grub = {
       enable = true;
@@ -72,7 +73,8 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+      font-awesome
+      (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "Monofur" ]; })
     ];
     fontDir.enable = true;
   };
