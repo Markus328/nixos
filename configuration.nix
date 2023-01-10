@@ -18,10 +18,11 @@
 
   ##IMPURITIES: boot - efi only grub
   boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelParams = [ "mitigations=off" ];
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
+      efiSysMountPoint = "/boot/efi"; ## Set yourself
     };
     grub = {
       enable = true;
