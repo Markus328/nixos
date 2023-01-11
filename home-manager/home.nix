@@ -29,6 +29,7 @@
   ];
   home.packages = with pkgs; [
     waybar
+    wofi
     pavucontrol
     nixos-option
     bottles
@@ -40,7 +41,6 @@
     tmux
     wineWowPackages.unstableFull
     t64gram
-    wofi
 
     #programming
     clang
@@ -52,4 +52,3 @@
   ];
 
 }
-
