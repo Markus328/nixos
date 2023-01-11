@@ -9,12 +9,10 @@
   gtk = {
     enable = true;
     cursorTheme = {
-      name = "breeze_cursors";
-      package = pkgs.breeze-icons;
+      name = "Oxygen_White";
     };
     theme = {
       name = "Breeze";
-      package = pkgs.breeze-gtk;
     };
   };
   home.packages = with pkgs; [
@@ -92,7 +90,7 @@
       "baloofilerc"."General"."folders[$e]" = "$HOME/,/userdata/@workspace/";
       "kcminputrc"."Keyboard"."RepeatDelay" = 305;
       "kcminputrc"."Keyboard"."RepeatRate" = 30.710000;
-      "kcminputrc"."Mouse"."cursorTheme" = "Oxygen_Blue";
+      "kcminputrc"."Mouse"."cursorTheme" = "Oxygen_White";
       "kdeglobals"."General"."AllowKDEAppsToRememberWindowPositions" = true;
       "kdeglobals"."KDE"."AnimationDurationFactor" = 0;
       "kdeglobals"."KDE"."SingleClick" = false;
