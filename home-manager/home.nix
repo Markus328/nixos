@@ -6,8 +6,9 @@
   home.stateVersion = "22.11";
 
   programs.home-manager.enable = true;
-  home.sessionVariables = {
-    XCURSOR_THEME = "breeze_cursors";
+  home.pointerCursor = {
+    name = "breeze_cursors";
+    package = pkgs.breeze-icons;
   };
   gtk = {
     enable = true;
