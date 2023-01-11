@@ -30,6 +30,7 @@
   home.packages = with pkgs; [
     waybar
     wofi
+    swaybg
     pavucontrol
     nixos-option
     bottles

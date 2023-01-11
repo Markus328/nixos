@@ -13,7 +13,7 @@
   };
 
   outputs = inputs: {
-    defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+    defaultPackage.x86_64-linux = inputs.home-manager.defaultPackage.x86_64-linux;
 
     homeConfigurations = {
       "markus" = inputs.home-manager.lib.homeManagerConfiguration {
