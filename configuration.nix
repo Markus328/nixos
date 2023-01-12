@@ -35,22 +35,43 @@
   #SYSTEMD
   systemd = {
     ##IMPURITIES - snapshot service
-    services.snapshots = {
-      enable = true;
-      path = with pkgs;[ bashInteractive btrfs-progs gawk gnused ];
-      description = "Do a root and home snapshot";
-      serviceConfig = {
-        ExecStart = "/userdata/@dotfiles/scripts/snapshots.sh -r"; ## set the correct path of the script
+    services = {
+      auto-gc = {
+        enable = true;
+        description = "collect nix garbage";
+        serviceConfig = {
+          ExecStart = "nix-collect-garbage";
+        };
+      };
+      snapshots = {
+        enable = true;
+        path = with pkgs;[ bashInteractive btrfs-progs gawk gnused ];
+        description = "Do a root and home snapshot";
+        serviceConfig = {
+          ExecStart = "/userdata/@dotfiles/scripts/snapshots.sh -r"; ## set the correct path of the script
+        };
       };
     };
-    timers.snapshots = {
-      enable = true;
-      description = "Timer to run snapshots.service at 9:00:00 and and 17:00:00";
-      timerConfig = {
-        OnCalendar = "*-*-* 9,17:00:00";
-        Persistent = true;
+
+    timers = {
+      auto-gc = {
+        enable = true;
+        description = "Timer to run auto-gc.service each week";
+        timerConfig = {
+          OnCalendar = "Sun *-*-* 00:00:00";
+          Persistent = true;
+        };
+        wantedBy = [ "auto-gc.target" ];
       };
-      wantedBy = [ "snapshots.target" ];
+      snapshots = {
+        enable = true;
+        description = "Timer to run snapshots.service at 9:00:00 and and 17:00:00";
+        timerConfig = {
+          OnCalendar = "*-*-* 9,17:00:00";
+          Persistent = true;
+        };
+        wantedBy = [ "snapshots.target" ];
+      };
     };
     ## 
   };
