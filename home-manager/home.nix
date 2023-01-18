@@ -21,13 +21,6 @@
       package = pkgs.breeze-gtk;
     };
   };
-  nixpkgs.overlays = [
-    (self: super: {
-      waybar = super.waybar.overrideAttrs (oldAttrs: {
-        mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-      });
-    })
-  ];
   home.packages = with pkgs; [
     waybar
     wofi

@@ -19,6 +19,7 @@
   ##IMPURITIES: boot - efi only grub
   boot.kernelPackages = pkgs.linuxPackages_zen;
   boot.kernelParams = [ "mitigations=off" ];
+  boot.tmpOnTmpfs = true;
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -101,7 +102,16 @@
   };
 
   programs.zsh.enable = true;
-  programs.hyprland.enable = true;
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   #USERS
   users.users = {
@@ -121,8 +131,6 @@
     zip
     unzip
     compsize
-    xdg-desktop-portal-kde
-    xdg-desktop-portal-gtk
     patchelf
     microcodeIntel
     python38
