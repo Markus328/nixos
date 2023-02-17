@@ -1,2 +1,2 @@
-#NixOS configs
+# NixOS configs
   My own NixOs configs.
